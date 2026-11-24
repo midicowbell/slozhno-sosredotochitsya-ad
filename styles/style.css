@@ -1,5 +1,339 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+/* Страница: фон на всю страницу, фиксированный, по центру */
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  padding: 10px;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: 400;
+  line-height: var(--line-height);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Общий декоративный приём: фон + цвет текста */
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--title-decor-text-color);
+}
+
+/* Декоративные уголки (шапка и футер) */
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--decor-color);
+  border-right: 1px solid var(--decor-color);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px solid var(--decor-color);
+  border-left: 1px solid var(--decor-color);
+}
+
+/* Шапка */
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  min-height: 668px;
+  height: 100vh;
+}
+
+/* REC — только в тёмной теме, декоративный, скрыт от скринридеров */
+.header__rec {
+  position: absolute;
+  top: 0;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-color);
+  line-height: 25px;
+  text-transform: uppercase;
+}
+
+.header__rec::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+/* Переключатель тем */
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  min-width: 70px;
+  min-height: 26px;
+  padding: 1.5px 13px;
+  border: 1px solid transparent;
+  color: var(--button-color);
+  font-size: var(--font-size);
+  line-height: 18px;
+  text-align: center;
+  text-transform: lowercase;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--button-hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--button-color);
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--button-color);
+  pointer-events: none;
+}
+
+/* Заголовки шапки и футера */
+.header__title,
+.footer__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.825;
+  color: var(--title-color);
+}
+
+.header__title {
+  text-shadow: 4px 4px 0 var(--title-shadow-color);
+}
+
+.header__text {
+  justify-self: end;
+  align-self: center;
+  font-weight: 700;
+}
+
+/* Основной контент */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-block: 40px;
+}
+
+.content__section {
+  display: grid;
+  gap: 20px;
+}
+
+.content__title {
+  font-size: var(--font-size);
+  font-weight: 700;
+  color: var(--section-title-color);
+}
+
+.content__list {
+  display: grid;
+  gap: 20px;
+}
+
+.content__advice {
+  display: grid;
+  gap: 20px;
+}
+
+.content__subtitle {
+  font-size: var(--font-size);
+  font-weight: 700;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__title {
+  font-size: var(--font-size);
+  font-weight: 700;
+}
+
+.card__title--regular {
+  font-weight: 400;
+}
+
+.card__link {
+  color: inherit;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.card__link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.card__link:focus {
+  outline: none;
+}
+
+.card__link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+/* Галерея */
+.gallery {
+  gap: 10px;
+}
+
+.gallery__title {
+  font-size: var(--font-size);
+  font-weight: 700;
+}
+
+.gallery__list {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Футер */
+.footer {
+  display: grid;
+  place-items: center;
+  min-height: 668px;
+  height: 100vh;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--title-shadow-color);
+}
+
+/* Планшет: от 768px */
+@media (width >= 768px) {
+  .page {
+    padding: 20px;
+  }
+
+  .header__title,
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__text {
+    max-width: 364px;
+  }
+
+  .content {
+    gap: 80px;
+    margin-block: 60px;
+  }
+
+  .content__section--why,
+  .content__section--how {
+    grid-template-columns: 236px 1fr;
+  }
+
+  .content__section--what .content__title {
+    max-width: 236px;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .gallery__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gallery__item--sunset {
+    grid-column: span 2;
+  }
+
+  .gallery__item--ice-cream {
+    grid-row: span 2;
+  }
+
+  .gallery__item--tape {
+    grid-row: span 2;
+  }
+
+  .gallery__item--books {
+    grid-column: span 2;
+  }
+
+  .gallery__item--street {
+    grid-column: span 2;
+  }
+}
+
+/* Десктоп: от 1024px */
+@media (width >= 1024px) {
+  .header__text {
+    max-width: 491px;
+  }
+
+  .content__section--why,
+  .content__section--how {
+    grid-template-columns: 315px 1fr;
+  }
+
+  .content__section--what .content__title {
+    max-width: 315px;
+  }
+
+  .content__section--what .content__list {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
 }

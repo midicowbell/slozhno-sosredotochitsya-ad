@@ -2,3 +2,21 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+
+/* Основная тема — тёмная */
+:root {
+  --bg-color: #000028;
+  --bg-image: url(../images/cover-image-dark.png);
+  --text-color: #f1b2ce;
+  --accent-color: #ff0070;
+  --title-color: #db00ff;
+  --title-shadow-color: #ff0070;
+  --section-title-color: #ff0070;
+  --decor-color: #ff0070;
+  --button-color: #ff0070;
+  --button-hover-color: rgb(255 0 112 / 0.4);
+  --title-decor-text-color: #000028;
+  --font-family: "IBM Plex Mono", monospace;
+  --font-size: 18px;
+  --line-height: 1.3;
+}
